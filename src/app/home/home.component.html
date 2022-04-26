@@ -1,0 +1,95 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<div style="margin:auto;padding:10; width:50em;" >
+<br>
+<button class="w3-round-xxxlarge" mat-raised-button style="background-color:#c5fc78">Cruises</button>
+<form [formGroup] = "travelerForm" class = "travelerForm">
+  <mat-form-field appearance="fill">
+    <mat-label>Number of adults</mat-label>
+    <input min = 1 matInput type = "number" formControlName = "formAdults">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Number of children</mat-label>
+    <input min = 0 matInput type="number" formControlName = "formChildren">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+  <mat-label>Number of Rooms</mat-label>
+  <input min = 1 max = 4 matInput type="number" formControlName = "formRooms">
+</mat-form-field>
+  <button (click) = "assembleTravelers()" mat-raised-button color = "primary">Assemble your travelers!</button>
+</form>
+</div>
+<!-- <h3>Search Cruises by Location</h3>
+<form [formGroup] = "locationForm">
+    <mat-form-field appearance="fill">
+        <mat-label>Where are you headed?</mat-label>
+        <mat-select formControlName = "formLocations">
+          <mat-option *ngFor="let location of locations" [value]="location">
+            {{location}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    <button [disabled] = "locationForm.invalid" mat-raised-button color = "primary" >Search</button>
+</form>
+<h3>Search Cruises by Date</h3>
+<form [formGroup] = "dateForm">
+    <mat-form-field appearance="fill">
+        <mat-label>When do you want to travel?</mat-label>
+        <mat-date-range-input [rangePicker]="picker" >
+          <input matStartDate placeholder="Start date" formControlName = "formDates">
+          <input matEndDate placeholder="End date" formControlName = "formDates">
+        </mat-date-range-input>
+        <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+      <button [disabled] = "dateForm.invalid" mat-raised-button color = "primary">Search</button>
+</form> -->
+<br>
+
+<div class="w3-panel w3-round-large w3-grey" style="margin:auto; width:50%; background-color:#d4f1f9">
+  <h2 class="w3-panel w3-round-large" style="text-align:center">All currently scheduled cruises:</h2>
+</div>
+<div>
+<div style="margin:auto; background-color:#d4f1f9" *ngFor = "let voyage of this.service.Voyages;let i = index">
+  <mat-card class="example-card">
+    <mat-card-title-group>
+      <mat-card-title style="color:#518901">{{voyage.cruiseShip.tripLength}} night {{voyage.destination}} Cruise</mat-card-title>
+      <mat-card-subtitle>
+        <h3>{{voyage.cruiseShip.cruiseLine}} {{voyage.cruiseShip.shipName}}</h3>
+        <b class="b2">Sailing dates:</b> {{voyage.departure | date}} - {{voyage.arrival | date}}
+        <h5>from <b> {{voyage.cruiseShip.childPrice | currency}} </b> per child traveler*</h5>
+        <h5 class="adjust-line-height">from <b> {{voyage.cruiseShip.adultPrice | currency}} </b> per adult traveler*</h5>
+        <h5 class="adjust-line-height">from <b> {{voyage.cruiseShip.roomPrice | currency}} </b> per room*</h5>
+        <button (click) = "chooseCruise(i)" mat-raised-button color = "primary">Book your voyage</button>
+      </mat-card-subtitle>
+      <img mat-card-xl-image [src]="voyage.cruiseShip.img1">
+    </mat-card-title-group>
+    <mat-card-content>
+      <mat-accordion>
+        <mat-expansion-panel hideToggle >
+          <mat-expansion-panel-header>
+            <mat-panel-title style="color:orange">
+              Departing {{voyage.cruiseShip.portCity}}
+            </mat-panel-title >
+            <mat-panel-description>
+              <a style="color:orange"> See itinerary</a>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <hr>
+          <mat-list role="list" *ngFor = "let itinerary of voyage.cruiseShip.itineraries">
+            <mat-list-item role="listitem"><h3 class="w3-panel w3-round-xxlarge w3-orange adjust-line-height" style="color:blue">Day {{itinerary.day}}</h3></mat-list-item>
+            <mat-list-item role="listitem"><h2>{{itinerary.city}}</h2></mat-list-item>
+            <mat-list-item role="listitem" *ngIf = "itinerary.stateCountry"><h3>{{itinerary.stateCountry}}</h3></mat-list-item>
+            <mat-list-item role="listitem" *ngIf = "itinerary.portTime"><h3>Time: {{itinerary.portTime}}</h3></mat-list-item>
+            <hr>
+          </mat-list>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-card-content>
+  </mat-card>
+  <!-- <img style = "height: 200px;" [src] = "voyage.cruiseShip.img1">
+  <h3><b>{{voyage.cruiseShip.tripLength}} night {{voyage.destination}} Cruise</b></h3>
+  <h3><b>Sailing dates: </b>{{voyage.departure | date}} - {{voyage.arrival | date}}</h3> -->
+</div>
+</div>

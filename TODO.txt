@@ -1,0 +1,52 @@
+Home Page:
+    GET A LOGO
+
+Login Page:
+    Get via form:
+        Username
+        Password
+    Authenticate via Guard
+
+Register Page:
+    *Get via form:
+        *Input Validation 
+        *First Name
+       * Last Name
+        *Date of Birth?
+       * Balance
+        *Address Details
+        *Email
+        *Password
+    push via HttpClient
+
+Packages Page:
+    Display all Packages
+    Search by:
+        Start Date
+        Price range
+        Location
+    Book a Package:
+        Choose number of tickets
+        Optional for customer:
+            Choose flight(s)
+            Choose hotel(s)
+        Check Balance
+        Confirm (save to DB)
+    
+My Account Page:
+    IF LOGGED IN:
+        Can view and edit customer details
+            1.Email?
+            2.Password (ask for old password to confirm?)
+        Can view and edit purchased tickets
+    Else:
+        Don't even let them click it?
+
+About Us Page:
+    Pictures of us I guess
+    Text description
+     Can make it look fancy if feasible
+
+
+BUGS:
+When toggling password from invis to vis, the registration form resets.

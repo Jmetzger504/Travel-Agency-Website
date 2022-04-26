@@ -1,0 +1,38 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+
+<div class="bg">
+<div class="relativex">
+<table class="tablehost" height="100%">
+    <tr>
+        <td>
+        <h1>Login</h1>
+    <form [formGroup] = "loginForm">
+    <mat-form-field class="matfield" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="pat@example.com" formControlName="email" required>
+        <mat-error *ngIf = "email?.invalid"></mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="matfield" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName = "password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf = "password?.invalid"></mat-error>
+    </mat-form-field>
+    <br>
+    <button (click) = "login()" [disabled] = "loginForm.invalid" mat-raised-button color = "primary">Login</button>
+    </form>
+    <br>
+    <h3>{{this.confirmation}}</h3>
+    </td>
+    </tr>
+    </table>
+</div>
+
+</div>

@@ -1,0 +1,23 @@
+.example-card {
+    max-width: 50em;
+    margin-top: 8px;
+    margin-bottom: 8px; 
+    /* width: 350px; */
+    /* height: 400px; */
+    display: block;
+    margin-left:auto;
+    margin-right:auto;  
+    vertical-align:middle;    
+}  
+.adjust-line-height {
+    line-height: 1em;
+    }
+form mat-form-field {
+    margin-right: 8px
+}
+b{
+    color:rgb(244, 42, 7);
+}
+.b2{
+    color:rgb(74, 74, 74);
+}

@@ -1,0 +1,26 @@
+
+.bg {
+
+  color: #fff;background-image: url("../../assets/images/paradiseIsland.jpg"); 
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.matfield{
+  background-color:rgb(200, 246, 180);opacity:0.85;
+}
+
+button, mat-form-field {
+    width: 20em;
+  }
+
+  .balance {
+    text-align: right;
+  }
+  div.relativer {
+    position: relative;
+    top:50px;
+    left: 100px;
+    
+  }

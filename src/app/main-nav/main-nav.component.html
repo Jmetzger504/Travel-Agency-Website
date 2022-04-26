@@ -1,0 +1,66 @@
+
+  <div>
+    <mat-sidenav-container class="sidenav-container">
+      <mat-sidenav #drawer class="sidenav" fixedInViewport [ngClass] = "{hidden: !(isHandset$ | async)!}"
+          [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+          [mode]="(isHandset$ | async) ? 'over' : 'side'"
+          [opened]="(isHandset$ | async) === false">
+        <mat-toolbar>Menu</mat-toolbar>
+        <mat-nav-list>
+          <a *ngIf = "service.loggedIn"  mat-list-item routerLink="home">Home!</a>
+          <a mat-list-item routerLink="aboutus">About Us</a>
+          <a *ngIf = "!service.loggedIn else logout" mat-list-item routerLink="login">Login</a>
+          <ng-template #logout>
+            <a mat-list-item>Logout</a>
+          </ng-template>
+          <a *ngIf = "service.loggedIn" mat-list-item routerLink="myaccount">My Account</a>
+          <a *ngIf = "!service.loggedIn" mat-list-item routerLink="register">Sign Up!</a>
+        </mat-nav-list>
+      </mat-sidenav>
+    
+      <mat-sidenav-content>
+    
+        <mat-toolbar color="primary">
+          <button
+            type="button"
+            aria-label="Toggle sidenav"
+            mat-icon-button
+            (click)="drawer.toggle()"
+            *ngIf="isHandset$ | async">
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+          </button>
+          <div>
+          <a routerLink="home"><img  width ="150" alt="Excelsior Travel Agency" src="assets/images/excelsiorlogo4darktrans.gif.png"/></a>   
+        </div>
+    
+          <div [ngClass] = "{hidden: (isHandset$ | async)!}">
+            <section>
+              <div class="example-button-row">
+                <button mat-button [matMenuTriggerFor]="menu">Menu<mat-icon>arrow_drop_down</mat-icon></button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item routerLink="home"><mat-icon color="primary">directions_boat</mat-icon>Cruises</button>
+                  <button mat-menu-item><mat-icon color="warn">flight</mat-icon>Flights</button>
+                  <button mat-menu-item><mat-icon color="accent">directions_car</mat-icon>Cars</button>
+                  <button mat-menu-item><mat-icon color="primary">hotel</mat-icon>Hotels</button>
+                  <button mat-menu-item  routerLink="home"><mat-icon color="warn">business_center</mat-icon>Packages</button>
+                  <button mat-menu-item><mat-icon color="accent"> format_list_numbered</mat-icon>Itinerary</button>
+                </mat-menu>
+                <button *ngIf = "service.loggedIn" mat-button color="accent" routerLink="myaccount">Account</button>
+                <button mat-button color="accent" routerLink="aboutus">About</button>
+                <button mat-button color="accent" routerLink="contactus">Contact Us</button>
+                <button mat-button color="accent"><mat-icon color="warn">phone</mat-icon>1.800.123.4567</button>
+                <button mat-button color="accent"><mat-icon color="warn">email</mat-icon></button>
+                <button mat-button color="accent" routerLink="login" *ngIf = "!service.loggedIn else logOut">Login</button>
+                <ng-template #logOut>
+                  <a routerLink = "logout">Logout</a>
+                </ng-template>
+                <button *ngIf = "!service.loggedIn" mat-button color="accent" routerLink="register">Sign Up</button>   
+              </div>
+            </section>
+        </div>
+        </mat-toolbar>
+        <ng-content></ng-content>
+        <!-- Add Content Here -->
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+    </div> 

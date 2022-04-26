@@ -1,0 +1,49 @@
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!-- <h1>My Cruises</h1> -->
+<hr/>
+<div class="w3-panel w3-round-xxxlarge w3-orange" style="margin:auto; width:50%;" align="center">
+   <button align="center" class="w3-round-xxxlarge" mat-raised-button style="background-color:#c5fc78 ;text-align:center" >Confirmed Cruises & Itinerary</button>
+  <h2 class="w3-panel w3-round-xxxlarge w3-orange" style="text-align:center"><b class="b2">{{message}}</b></h2> 
+</div>
+<hr/><br>
+
+<div style="margin:auto;padding:10; width:50em;" >
+<div *ngFor = "let ticket of this.service.cruiseTickets">
+    <mat-card class="example-card">
+        <mat-card-title-group>
+          <mat-card-title style="color:#518901">{{ticket.myVoyage.cruiseShip.tripLength}} night {{ticket.myVoyage.destination}} Cruise</mat-card-title>
+          <mat-card-subtitle>
+            <h3>{{ticket.myVoyage.cruiseShip.cruiseLine}} {{ticket.myVoyage.cruiseShip.shipName}}</h3>
+            <b class="b2">Sailing dates:</b> {{ticket.myVoyage.departure | date}} - {{ticket.myVoyage.arrival | date}}
+            <p *ngIf = "ticket.childGuests != 0">{{ticket.childGuests}} child travelers from {{ticket.myVoyage.cruiseShip.childPrice | currency}} per traveler</p>
+            <p>{{ticket.adultGuests }} adult travelers from {{ticket.myVoyage.cruiseShip.adultPrice | currency}} per traveler</p>
+            <p>Room(s) booked: {{ticket.rooms}}</p>
+            <p><b class="b2">Total cost: </b><a class="adjust-line-height"><b>{{ticket.totalCost | currency}}</b> </a></p>
+          </mat-card-subtitle>
+          <img mat-card-xl-image [src]="ticket.myVoyage.cruiseShip.img1">
+        </mat-card-title-group>
+        <mat-card-content>
+          <mat-accordion>
+            <mat-expansion-panel hideToggle >
+              <mat-expansion-panel-header>
+                <mat-panel-title style="color:orange">
+                  Departing {{ticket.myVoyage.cruiseShip.portCity}}
+                </mat-panel-title>
+                <mat-panel-description style="color:orange">
+                  See itinerary
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <hr>
+              <mat-list role="list" *ngFor = "let itinerary of ticket.myVoyage.cruiseShip.itineraries">
+                <mat-list-item role="listitem"><h3 class="w3-panel w3-round-xxlarge w3-orange adjust-line-height" style="color:blue">Day {{itinerary.day}}</h3></mat-list-item>
+                <mat-list-item role="listitem"><h2>{{itinerary.city}}</h2></mat-list-item>
+                <mat-list-item role="listitem" *ngIf = "itinerary.stateCountry"><h3>{{itinerary.stateCountry}}</h3></mat-list-item>
+                <mat-list-item role="listitem" *ngIf = "itinerary.portTime"><h3>{{itinerary.portTime}}</h3></mat-list-item>
+                <hr>
+              </mat-list>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </mat-card-content>
+      </mat-card>
+</div>

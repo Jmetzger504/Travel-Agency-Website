@@ -1,0 +1,79 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Art Leyva\\Desktop\\project2\\project2.042522\\Excelsior-Travel-Agency-Website\\newExcelsiorAPI\\newExcelsiorAPI\\newExcelsiorAPI.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Art Leyva\\Desktop\\project2\\project2.042522\\Excelsior-Travel-Agency-Website\\newExcelsiorAPI\\newExcelsiorAPI\\newExcelsiorAPI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Art Leyva\\Desktop\\project2\\project2.042522\\Excelsior-Travel-Agency-Website\\newExcelsiorAPI\\newExcelsiorAPI\\newExcelsiorAPI.csproj",
+        "projectName": "newExcelsiorAPI",
+        "projectPath": "C:\\Users\\Art Leyva\\Desktop\\project2\\project2.042522\\Excelsior-Travel-Agency-Website\\newExcelsiorAPI\\newExcelsiorAPI\\newExcelsiorAPI.csproj",
+        "packagesPath": "C:\\Users\\Art Leyva\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Art Leyva\\Desktop\\project2\\project2.042522\\Excelsior-Travel-Agency-Website\\newExcelsiorAPI\\newExcelsiorAPI\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Art Leyva\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.3.1, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

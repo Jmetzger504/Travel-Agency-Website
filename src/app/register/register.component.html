@@ -1,0 +1,115 @@
+<div class="bg">
+    <div class="relativer" style="color:blue">
+    <h1>Register for an Account!</h1>
+    <form [formGroup]= "registerForm">
+    <mat-form-field class="matfield" appearance="fill">
+        <input  matInput placeholder = "First Name" formControlName = "firstName">
+        <mat-error *ngIf = "firstName?.invalid">This field is required!</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field class="matfield" appearance="fill" style="padding-left:15px">
+        <input matInput placeholder = "Last Name" formControlName = "lastName">
+        <mat-error *ngIf = "lastName?.invalid">This field is required!</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="matfield" appearance="fill">
+        <mat-label>Street Address</mat-label>
+        <input matInput formControlName = "streetAddress">
+        <mat-error *ngIf = "streetAddress?.invalid">This field is required!</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field class="matfield" appearance = "fill" style="padding-left:15px">
+        <mat-label>City</mat-label>
+        <input matInput formControlName = "city">
+        <mat-error *ngIf = "city?.invalid">This field is required!</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="matfield" appearance="fill" >
+        <mat-label>State</mat-label>
+        <mat-select formControlName = "state">
+          <mat-option value="Alabama">Alabama</mat-option>
+          <mat-option value="Alaska">Alaska</mat-option>
+          <mat-option value="Arizona">Arizona</mat-option>
+          <mat-option value="Arkansas">Arkansas</mat-option>
+          <mat-option value="California">California</mat-option>
+          <mat-option value="Colorado">Colorado</mat-option>
+          <mat-option value="Connecticut">Connecticut</mat-option>
+          <mat-option value="Delaware">Delaware</mat-option>
+          <mat-option value="District of Columbia">District</mat-option>
+          <mat-option value="Florida">Florida</mat-option>
+          <mat-option value="Georgia">Georgia</mat-option>
+          <mat-option value="Hawaii">Hawaii</mat-option>
+          <mat-option value="Idaho">Idaho</mat-option>
+          <mat-option value="Illinois">Illinois</mat-option>
+          <mat-option value="Indiana">Indiana</mat-option>
+          <mat-option value="Kansas">Kansas</mat-option>
+          <mat-option value="Kentucky">Kentucky</mat-option>
+          <mat-option value="Louisiana">Louisiana</mat-option>
+          <mat-option value="Maine">Maine</mat-option>
+          <mat-option value="Maryland">Maryland</mat-option>
+          <mat-option value="Massachusetts">Massachusetts</mat-option>
+          <mat-option value="Michigan">Michigan</mat-option>
+          <mat-option value="Minnesota">Minnesota</mat-option>
+          <mat-option value="Mississippi">Mississippi</mat-option>
+          <mat-option value="Missouri">Missouri</mat-option>
+          <mat-option value="Montana">Montana</mat-option>
+          <mat-option value="Nebraska">Nebraska</mat-option>
+          <mat-option value="Nevada">Nevada</mat-option>
+          <mat-option value="New Hampshire">New Hampshire</mat-option>
+          <mat-option value="New Jersey">New Jersey</mat-option>
+          <mat-option value="New Mexico">New Mexico</mat-option>
+          <mat-option value="New York">New York</mat-option>
+          <mat-option value="North Carolina">North Carolina</mat-option>
+          <mat-option value="North Dakota">North Dakota</mat-option>
+          <mat-option value="Ohio">Ohio</mat-option>
+          <mat-option value="Oklahoma">Oklahoma</mat-option>
+          <mat-option value="Oregon">Oregon</mat-option>
+          <mat-option value="Pennsylvania">Pennsylvania</mat-option>
+          <mat-option value="Rhode Island">Rhode Island</mat-option>
+          <mat-option value="South Carolina">South Carolina</mat-option>
+          <mat-option value="South Dakota">South Dakota</mat-option>
+          <mat-option value="Tennessee">Tennessee</mat-option>
+          <mat-option value="Texas">Texas</mat-option>
+          <mat-option value="Utah">Utah</mat-option>
+          <mat-option value="Vermont">Vermont</mat-option>
+          <mat-option value="Virginia">Virginia</mat-option>
+          <mat-option value="Washington">Washington</mat-option>
+          <mat-option value="West Virginia">West Virginia</mat-option>
+          <mat-option value="Wisconsin">Wisconsin</mat-option>
+          <mat-option value="Wyoming">Wyoming</mat-option>
+        </mat-select>
+        <mat-error *ngIf = "state?.invalid">This field is required!</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field class="matfield" appearance = "fill" style="padding-left:15px">
+        <input placeholder="Zip Code" matInput type = "number" formControlName = "zipCode">
+        <mat-error *ngIf = "zipCode?.invalid">This field is required!</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="matfield" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+        <mat-error *ngIf = "email?.invalid">Valid email required!</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="matfield" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName = "password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-hint class="matfield" >Must be at least 8 characters and contain at least one letter and one number.</mat-hint>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="matfield" appearance="fill" floatLabel="always">
+        <mat-label>Initial Balance</mat-label>
+        <input min = 0 matInput type="number" class="balance" formControlName = "balance">
+        <span matPrefix>$ (USD)&nbsp;</span>
+        <span matSuffix>.00</span>
+        <mat-error *ngIf = "balance?.invalid">This field is required!</mat-error>
+    </mat-form-field>
+    <br>
+    <button (click) = "register()" [disabled] = "registerForm.invalid" mat-raised-button color = "primary">Register</button>
+    </form>
+    </div>
+    </div>
